@@ -11,19 +11,22 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorFullWidth="true"
+        app:tabGravity="fill"
         app:tabIndicatorColor="#00BCD4"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="scrollable"
         app:tabSelectedTextColor="#00BCD4"
         app:tabTextColor="@color/black"
-        app:tabMode="scrollable"
-        app:tabGravity="fill"
-        />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tabLayout"/>
+        android:layout_below="@id/tabLayout"
+        tools:ignore="SpeakableTextPresentCheck"
+        />
 
 
 </LinearLayout>
