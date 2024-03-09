@@ -1,6 +1,7 @@
 package com.hamidul.scrollabletabLayout;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
 
-        TabAdapter adapter = new TabAdapter(getSupportFragmentManager(),TabAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new Fragment1(),"Title 1");
         adapter.addFragment(new Fragment2(),"Title 2");
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setCurrentItem(5);
+        viewPager.setCurrentItem(3);
 
     }
 
@@ -53,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         ArrayList<String> fragmentTitle = new ArrayList<>();
 
-        public TabAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
+        public TabAdapter(@NonNull FragmentManager fm) {
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+
         }
 
         public void addFragment(Fragment fragment, String title){
@@ -66,12 +68,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return fragmentTitle.get(position);
+
         }
 
         @NonNull
         @Override
         public Fragment getItem(int position) {
             return fragmentArrayList.get(position);
+
         }
 
         @Override

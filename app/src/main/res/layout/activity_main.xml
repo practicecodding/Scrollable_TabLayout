@@ -18,7 +18,9 @@
         app:tabMode="scrollable"
         app:tabSelectedTextColor="#00BCD4"
         app:tabTextColor="@color/black"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        app:tabTextAppearance="@style/MyTabStyle"
+        />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
